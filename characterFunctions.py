@@ -21,5 +21,5 @@ character = {'NAME': '',
              'CLASS': '',
              'XP': 0}
 
-availableRaces = ['Human', 'Elf', 'Dwarf', 'Halfling']
-availableClasses = ['Warrior', 'Rogue', 'Mage']
+availableRaces = ['human', 'elf', 'dwarf', 'halfling']
+availableClasses = ['warrior', 'rogue', 'mage']

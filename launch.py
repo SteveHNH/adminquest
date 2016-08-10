@@ -40,10 +40,10 @@ while character['RACE'] == '':
     print
     print('Choose a Race:')
     for race in availableRaces:
-        print(race)
+        print(race.title())
     print('')
     print('Race Choice: ', end='')
-    character['RACE'] = raw_input()
+    character['RACE'] = raw_input().lower()
     if character['RACE'] not in availableRaces:
         print('')
         print('Please choose a valid race')
@@ -68,10 +68,10 @@ in, friend? What is your profession?''')
 while character['CLASS'] == '':
     print('Choose a Class')
     for classes in availableClasses:
-        print(classes)
+        print(classes.title())
     print('')
     print('Class Choice: ')
-    character['CLASS'] = raw_input()
+    character['CLASS'] = raw_input().lower()
     if character['CLASS'] not in availableClasses:
         print('')
         print('Please choose a valid class')
