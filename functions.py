@@ -1,7 +1,8 @@
 """
 Common functions
 """
-from characterFunctions import character, inventory
+from __future__ import print_function
+from characterFunctions import *
 from questBoard import availableQuests
 import os
 
@@ -14,8 +15,12 @@ def speech(text):
     print('')
 
 def displaySheet():
+    print('''
+    Character Sheet
+    ===============''')
     for key in character:
-        print(key + ': ' + str(character[key]).title())
+        print(key.title() + ': ' + str(character[key]).title())
+    print('')
 
 def modGold(num):
     if inventory['Gold'] == 0 and num <= 0:
@@ -52,3 +57,20 @@ def printQuests():
           ''')
     for k in availableQuests:
         print(k + ': ' + availableQuests[k])
+
+def createChar(spec, speclist):
+    character[spec] = ''
+    while character[spec] == '':
+        print
+        print('Choose a ' + spec.title() + ':')
+        for value in speclist:
+            print(value.title())
+        print('')
+        print(spec.title() + ' Choice: ', end='')
+        character[spec] = raw_input().lower()
+        if character[spec] not in speclist:
+            print('')
+            print('Please choose a valid ' + spec)
+            character[spec] = ''
+        else:
+            continue

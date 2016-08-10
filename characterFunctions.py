@@ -17,8 +17,8 @@ inventory = {'Gold': 0,
              'Slot 6': ''}
 
 character = {'NAME': '',
-             'RACE': '',
-             'CLASS': '',
+             'race': '',
+             'class': '',
              'XP': 0}
 
 availableRaces = ['human', 'elf', 'dwarf', 'halfling']
