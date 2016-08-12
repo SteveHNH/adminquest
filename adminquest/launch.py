@@ -7,7 +7,7 @@ idea what I'm doing yet, but I'm kind of excited about the possibilities.
 
 from __future__ import print_function
 from questBoard import availableQuests
-from characterFunctions import inventory, character, availableRaces, availableClasses
+from dataStore import inventory, character, availableRaces, availableClasses
 from functions import *
 
 clearScreen()
@@ -18,17 +18,17 @@ Press Enter to Begin Your Quest...
 ''')
 
 print('What is your name, Adventurer? ')
-character['NAME'] = raw_input()
+character['name'] = raw_input()
 
 speech('''
-It is so good to see you, ''' + character['NAME'].title() + '!' + '''
+It is so good to see you, ''' + character['name'].title() + '!' + '''
 My vision is poor, my friend. It has been a long time since an adventurer
 such as yourself has made their way to this place.''')
 
 pressEnter()
 clearScreen()
 speech('''
-Tell me, ''' + character['NAME'] + ', of what race are you?')
+Tell me, ''' + character['name'] + ', of what race are you?')
 createChar('race', availableRaces)
 
 print('')
@@ -53,7 +53,7 @@ speech('Fantastic! We need more ' + str.lower(character['class']) +
 pressEnter()
 clearScreen()
 
-speech('Well, ' + character['NAME'] + ', we have a lot of work to do.')
+speech('Well, ' + character['name'] + ', we have a lot of work to do.')
 speech('''
 The system is broken, friend. We need a system administrator to help bring
 it back. But first, you'll need some training. Here I have a list of "quests"
@@ -78,10 +78,10 @@ if sheetChange.lower() == 'y':
         choice = raw_input()
         if choice.lower() == 'name':
             speech('What would you like to change your name to?')
-            character['NAME'] = ''
-            while character['NAME'] == '':
+            character['name'] = ''
+            while character['name'] == '':
                 newName = raw_input()
-                character['NAME'] = newName.title()
+                character['name'] = newName.title()
             displaySheet()
             print('Would you like to change anything else? (y/n) ', end='')
             answer = raw_input()
@@ -89,7 +89,7 @@ if sheetChange.lower() == 'y':
                 sheetChange = 'n'
         elif choice.lower() == 'class':
             speech('What would you like to change your class to? ')
-            character['CLASS'] = ''
+            character['class'] = ''
             createChar('class', availableClasses)
             displaySheet()
             print('Would you like to change anything else? (y/n) ', end='')
@@ -98,7 +98,7 @@ if sheetChange.lower() == 'y':
                 sheetChange = 'n'
         elif choice.lower() == 'race':
             speech('What would you like to change your race to?')
-            character['RACE'] = ''
+            character['race'] = ''
             createChar('race', availableRaces)
             displaySheet()
             print('Would you like to change anything else? (y/n) ', end='')
@@ -109,7 +109,7 @@ if sheetChange.lower() == 'y':
             print('If you want to change something, do it.')
 
 
-speech('One more thing, ' +character['NAME'] + '.')
+speech('One more thing, ' +character['name'] + '.')
 pressEnter()
 speech('It\'s dangerous to go alone. Take this!')
 inventory['Mainhand'] = 'Wooden Stick'
@@ -117,5 +117,5 @@ speech('Received: ' + inventory['Mainhand'])
 pressEnter()
 clearScreen()
 
-
-printQuests()
+mainTitle()
+mainMenu()

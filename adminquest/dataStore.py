@@ -16,10 +16,11 @@ inventory = {'Gold': 0,
              'Slot 5': '',
              'Slot 6': ''}
 
-character = {'NAME': '',
+character = {'name': '',
              'race': '',
              'class': '',
              'XP': 0}
-
+             
 availableRaces = ['human', 'elf', 'dwarf', 'halfling']
 availableClasses = ['warrior', 'rogue', 'mage']
+menuItems = ['Character Sheet', 'Inventory', 'Quest Board', 'Exit']

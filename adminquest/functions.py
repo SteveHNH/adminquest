@@ -2,7 +2,8 @@
 Common functions
 """
 from __future__ import print_function
-from characterFunctions import *
+from pprint import pprint
+from dataStore import *
 from questBoard import availableQuests
 import os
 
@@ -21,6 +22,23 @@ def displaySheet():
     for key in character:
         print(key.title() + ': ' + str(character[key]).title())
     print('')
+
+def displaySheetMain():
+    print('''
+    Character Sheet
+    ===============''')
+    for key in character:
+        print(key.title() + ': ' + str(character[key]).title())
+    print('')
+    mainMenu()
+
+def displayInv():
+    print('''
+    Inventory
+    =========''')
+    pprint(inventory)
+    print('')
+    mainMenu()
 
 def modGold(num):
     if inventory['Gold'] == 0 and num <= 0:
@@ -57,6 +75,16 @@ def printQuests():
           ''')
     for k in availableQuests:
         print(k + ': ' + availableQuests[k])
+    print('')
+    choice = raw_input('Choose Quest or Type Menu: ')
+    print('')
+    if choice.lower() == 'menu':
+        clearScreen()
+        mainTitle()
+        mainMenu()
+    else:
+        exit()
+
 
 def createChar(spec, speclist):
     character[spec] = ''
@@ -74,3 +102,29 @@ def createChar(spec, speclist):
             character[spec] = ''
         else:
             continue
+
+def mainMenu():
+    num = 1
+    for i in menuItems:
+        print(str(num) + ': ' + i)
+        num += 1
+    print('')
+    choice = ''
+    while choice == '':
+        choice = raw_input('Choose: ')
+        clearScreen()
+        mainTitle()
+        if choice == '1':
+            displaySheetMain()
+        elif choice == '2':
+            displayInv()
+        elif choice == '3':
+            printQuests()
+        elif choice == '4':
+            print('')
+            print('Thanks for Playing!')
+            exit()
+        else:
+            print('Make a valid choice')
+            choice == ''
+    clearScreen()
