@@ -111,6 +111,7 @@ if sheetChange.lower() == 'y':
 
 speech('One more thing, ' +character['name'] + '.')
 pressEnter()
+clearScreen()
 speech('It\'s dangerous to go alone. Take this!')
 inventory['Mainhand'] = 'Wooden Stick'
 speech('Received: ' + inventory['Mainhand'])
