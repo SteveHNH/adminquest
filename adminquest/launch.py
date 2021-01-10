@@ -12,7 +12,7 @@ from functions import *
 clearScreen()
 mainTitle()
 
-raw_input('''
+input('''
 Press Enter to Begin Your Quest...
 ''')
 
