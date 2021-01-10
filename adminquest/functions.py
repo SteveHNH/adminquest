@@ -1,14 +1,13 @@
 """
 Common functions
 """
-from __future__ import print_function
 from pprint import pprint
 from dataStore import *
 from questBoard import availableQuests
 import os
 
 def pressEnter():
-    raw_input('Press Enter to Continue')
+    input('Press Enter to Continue')
 
 def speech(text):
     print('')
