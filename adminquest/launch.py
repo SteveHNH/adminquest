@@ -13,12 +13,12 @@ from functions import *
 clearScreen()
 mainTitle()
 
-raw_input('''
+input('''
 Press Enter to Begin Your Quest...
 ''')
 
 print('What is your name, Adventurer? ')
-character['name'] = raw_input()
+character['name'] = input()
 
 speech('''
 It is so good to see you, ''' + character['name'].title() + '!' + '''
