@@ -1,14 +1,13 @@
 """
 Common functions
 """
-from __future__ import print_function
 from pprint import pprint
 from dataStore import *
 from questBoard import availableQuests
 import os
 
 def pressEnter():
-    raw_input('Press Enter to Continue')
+    input('Press Enter to Continue')
 
 def speech(text):
     print('')
@@ -76,7 +75,7 @@ def printQuests():
     for k in availableQuests:
         print(k + ': ' + availableQuests[k])
     print('')
-    choice = raw_input('Choose Quest or Type Menu: ')
+    choice = input('Choose Quest or Type Menu: ')
     print('')
     if choice.lower() == 'menu':
         clearScreen()
@@ -95,7 +94,7 @@ def createChar(spec, speclist):
             print(value.title())
         print('')
         print(spec.title() + ' Choice: ', end='')
-        character[spec] = raw_input().lower()
+        character[spec] = input().lower()
         if character[spec] not in speclist:
             print('')
             print('Please choose a valid ' + spec)
@@ -111,7 +110,7 @@ def mainMenu():
     print('')
     choice = ''
     while choice == '':
-        choice = raw_input('Choose: ')
+        choice = input('Choose: ')
         clearScreen()
         mainTitle()
         if choice == '1':

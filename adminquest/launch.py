@@ -5,7 +5,6 @@ This is a basic framework for how adminquest is going to work. I have mostly no
 idea what I'm doing yet, but I'm kind of excited about the possibilities.
 '''
 
-from __future__ import print_function
 from questBoard import availableQuests
 from dataStore import inventory, character, availableRaces, availableClasses
 from functions import *
@@ -13,12 +12,12 @@ from functions import *
 clearScreen()
 mainTitle()
 
-raw_input('''
+input('''
 Press Enter to Begin Your Quest...
 ''')
 
 print('What is your name, Adventurer? ')
-character['name'] = raw_input()
+character['name'] = input()
 
 speech('''
 It is so good to see you, ''' + character['name'].title() + '!' + '''
@@ -70,21 +69,21 @@ speech('Makes sure I got all your details correct')
 displaySheet()
 
 speech('Would you like to change anything? (y/n) ')
-sheetChange = raw_input()
+sheetChange = input()
 if sheetChange.lower() == 'y':
     while sheetChange.lower() == 'y':
         speech('What would you like to change?')
         print('Name, Class, or Race: ', end='')
-        choice = raw_input()
+        choice = input()
         if choice.lower() == 'name':
             speech('What would you like to change your name to?')
             character['name'] = ''
             while character['name'] == '':
-                newName = raw_input()
+                newName = input()
                 character['name'] = newName.title()
             displaySheet()
             print('Would you like to change anything else? (y/n) ', end='')
-            answer = raw_input()
+            answer = input()
             if answer.lower() == 'n':
                 sheetChange = 'n'
         elif choice.lower() == 'class':
@@ -93,7 +92,7 @@ if sheetChange.lower() == 'y':
             createChar('class', availableClasses)
             displaySheet()
             print('Would you like to change anything else? (y/n) ', end='')
-            answer = raw_input()
+            answer = input()
             if answer.lower() == 'n':
                 sheetChange = 'n'
         elif choice.lower() == 'race':
@@ -102,7 +101,7 @@ if sheetChange.lower() == 'y':
             createChar('race', availableRaces)
             displaySheet()
             print('Would you like to change anything else? (y/n) ', end='')
-            answer = raw_input()
+            answer = input()
             if answer.lower() == 'n':
                 sheetChange = 'n'
         else:
